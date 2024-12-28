@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @if(div1Visible){
+                <div class="bg-danger p-3 text-center">
+                    <h4>Div-1</h4>
+                </div>
+            }
+            <button type="button" class="btn btn-success" (click) = "showDiv1()">Show</button><button class="btn btn-primary" type="button" (click) = "showDiv2()">Hide</button>
+        </div>
+        <div class="col-md-6">
+           @if(div2Visible){
+            <div class="bg-success p-3 text-center">
+                <h4>Div-2 Success</h4>
+              </div>
+           }
+        
+        @else{
+            <div class="bg-warning p-3 text-center">
+                <h4>Div-2 Warning</h4>
+              </div>
+        }
+            <button type="button" class="btn btn-success" (click) = "toggleDiv()">Toggle</button>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+              @if(num1==num2){
+                <div class="bg-secondary p-3 text-center">
+                    <h4>Div-3</h4>
+                  </div>
+              }
+            </div>
+            <div class="d-flex">
+              <input type="text" placeholder="Num-1" class="width:50" [(ngModel)]="num1" />
+              <input type="text" placeholder="Num-2" class="width:50" [(ngModel)]="num2" />
+            </div>
+          </div>
+    </div>
+</div>

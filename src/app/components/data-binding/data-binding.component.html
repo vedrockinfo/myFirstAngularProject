@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <p>from .ts to .html</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="text-center text-uppercase">Interpolation</h6>
+                    <div class="bg-success text-center text-white p-3">
+                        <h4 style="font-weight: bold;">{{courseName}}</h4>
+                        <h6>{{currentDate}}</h6>
+                        <input type="text" name="" id="" [placeholder]="courseName">
+                        <input type="{{inputType}}" value="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-center text-uppercase">Property Binding</h6>
+                    <input [type]="inputType">
+                    <input type="text" [value]="courseName">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p>from .html to .ts</p>
+            <button type="button" (click) = "showAlert('Welcome to Global ClassRoom')" class="btn btn-success">GCPL</button>
+            <span (click) = "changeCourseName()" class="text-uppercase" style="font-weight: bold;cursor: pointer;display: inline-block;border: 1px solid black;padding: 3px 10px;border-radius: 10px;margin-left: 15px;">Change Course Name {{courseName}}</span>
+            <input type="text" [(ngModel)] = courseName> | {{courseName}}
+            <select [(ngModel)] = selectState>
+                <option value="">Select</option>
+                <option value="Maharashta">Maharashta</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Goa">Goa</option>
+                <option value="Pune">Pune</option>
+            </select>
+            <input type="checkbox" class="d-block mt-3" [(ngModel)] = inIndian>
+            <h1>{{firstName()}}</h1>
+            <button (click) = "changeCourseName()" class="btn btn-danger">Change Name</button>
+        </div>
+    </div>
+</div>
