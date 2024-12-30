@@ -9,12 +9,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './structural-directive.component.css'
 })
 export class StructuralDirectiveComponent {
-  isDiv1Visible:boolean=false;
+  isDiv1Visible:boolean=true;
   isDiv2Toggle:boolean=true;
   num1:string = '';
   num2:string = '';
   isActive:boolean = true;
-  ifSelected:string="";
+  ifSelected:string="USA";
   cityArray:string[]=['Lko', 'USA', 'Pune', 'Philipines', 'Peru', 'Maldives'];
   studentList:any[]=[
     {studId:1, Name:"Vedant", City:"Lucknow", isActive:false},
