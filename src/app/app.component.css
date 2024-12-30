@@ -1,0 +1,8 @@
+.nav-item:not(:last-child){
+    border-right: 1px solid #ccc;
+}
+.nav-item a{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}

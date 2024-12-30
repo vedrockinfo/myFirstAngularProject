@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './ifelsepractice.component.css'
 })
 export class IfelsepracticeComponent {
-  div1Visible:boolean = false;
+  div1Visible:boolean = true;
   div2Visible:boolean = true;
   num1:string='';
   num2:string='';

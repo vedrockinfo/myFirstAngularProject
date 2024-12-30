@@ -1,0 +1,19 @@
+.fixedBtn a{
+    position: fixed;
+    top: 50%;
+    background: #e23a07;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+.fixedBtn a.fLink{
+    left: -50px;
+    transform: translateY(-50%) rotate(-90deg);
+}
+.fixedBtn a.lLink{
+    right: -50px;
+    transform: translateY(-50%) rotate(90deg);
+}
