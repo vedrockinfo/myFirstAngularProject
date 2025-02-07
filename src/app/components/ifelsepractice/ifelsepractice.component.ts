@@ -12,6 +12,7 @@ export class IfelsepracticeComponent {
   div2Visible:boolean = true;
   num1:string='';
   num2:string='';
+  selectStatus:string=''
   showDiv1(){
     this.div1Visible=true
   }

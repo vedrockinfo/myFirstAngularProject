@@ -1,0 +1,87 @@
+<section class="innerSection">
+    <h1>Control Flow Statement</h1>
+      <h6><span>&#64;</span> For, <span>&#64;</span> Switch</h6>
+  </section>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+            <ul>
+                 @for (item1 of cityArray; track $index) {
+                  <li>{{item1}}</li>
+                 }
+            </ul>
+        </div>
+        <div class="col-md-2">
+          @for (item of cityArray; track $index) {
+            <h6>{{item}}</h6>
+          }
+        </div>
+        <div class="col md-2">
+          <select name="" id="" class="form-select">
+            @for (items of studentList; track $index){
+            <option [value]="items.studId">{{items.Name}}</option>
+            }
+          </select>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <td>studId</td>
+                <td>Name</td>
+                <td>City</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+            <tbody>
+              @for (itema of studentList; track $index){
+              <tr>
+                <td>{{itema.studId}}</td>
+                <td>{{itema.Name}}</td>
+                <td>{{itema.City}}</td>
+                <td>{{itema.Status}}</td>
+              </tr>
+            }
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <input type="text" name="" id="" [(ngModel)]="dayName">
+          <h1>
+            
+          </h1>
+          <h6>
+            Here the Day Name is :
+            @switch (dayName){
+              @case ('1'){
+                Monday
+              }
+              @case ('2'){
+                Tuesday
+              }
+              @case ('3'){
+                Wednesday
+              }
+              @case ('4'){
+                Thursday
+              }
+              @case ('5'){
+                Friday
+              }
+              @case ('6'){
+                Saturday
+              }
+              @case ('7'){
+                Sunday
+              }
+              @default{
+                Wrang Entry
+              }
+            }
+          </h6>
+        </div>
+      </div>
+  </div>
+  

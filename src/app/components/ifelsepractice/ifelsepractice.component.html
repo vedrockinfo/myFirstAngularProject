@@ -39,5 +39,27 @@
               <input type="text" placeholder="Num-2" class="form-control" [(ngModel)]="num2" />
             </div>
         </div>
+        <div class="col-md-3">
+          <div class="box four">
+            @if (selectStatus == 'active'){
+              <h6>Status is Active</h6>
+            }@else if (selectStatus == 'deactive'){
+              <h6>Status is De-Active</h6>
+            }@else if (selectStatus == 'pending'){
+              <h6>Status is Pending</h6>
+            }@else{
+              <h6>Please Select the Status</h6>
+            }
+            
+            
+            
+          </div>
+          <select class="form-select" [(ngModel)] = "selectStatus">
+            <option value="">Select Status</option>
+            <option value="active">Active</option>
+            <option value="deactive">De-Active</option>
+            <option value="pending">Pending</option>
+          </select>
+        </div>
     </div>
 </div>

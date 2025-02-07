@@ -5,8 +5,24 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { AttributeDirectiveComponent } from './components/directive/attribute-directive/attribute-directive.component';
 import { StructuralDirectiveComponent } from './components/directive/structural-directive/structural-directive.component';
 import { IfelsepracticeComponent } from './components/ifelsepractice/ifelsepractice.component';
+import { ForSwitchComponent } from './components/for-switch/for-switch.component';
+import { PipeComponent } from './components/pipe/pipe.component';
+import { FromvalidationComponent } from './components/fromvalidation/fromvalidation.component';
+import { ReactiveComponent } from './components/reactive/reactive.component';
+import { GetAPIComponent } from './components/get-api/get-api.component';
+import { NgtemplateComponent } from './components/ngtemplate/ngtemplate.component';
+import { KeyboardComponent } from './components/keyboard/keyboard.component';
 
 export const routes: Routes = [
+    {
+        path:'',
+        redirectTo:'keyboard',
+        pathMatch:'full'
+    },
+    {
+        path:'keyboard',
+        component:KeyboardComponent
+    },
     {
         path:'add-employee',
         component:AddEmployeeComponent    
@@ -30,5 +46,29 @@ export const routes: Routes = [
     {
         path:'ifElse-Statement',
         component:IfelsepracticeComponent
+    },
+    {
+        path:'for-switch',
+        component:ForSwitchComponent
+    },
+    {
+        path:'pipe',
+        component:PipeComponent
+    },
+    {
+        path:'fromvalidation',
+        component:FromvalidationComponent
+    },
+    {
+        path:'reactive',
+        component:ReactiveComponent
+    },
+    {
+        path:'ngtemplate',
+        component:NgtemplateComponent
+    },
+    {
+        path:'get-api',
+        component:GetAPIComponent
     }
 ];

@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="box one">
+                <div class="box one" [ngClass]="isDiv1Color">
                     <h4>DIV One</h4>
                 </div>
                 <div class="btn-wrapper">
@@ -16,29 +16,29 @@
             </div>
             
             <div class="col-md-3">
-                <div class="box two">
+                <div class="box two" [ngClass]="isDiv2Toggle ? 'bg-primary' : 'bg-warning'">
                     <h4>DIV Two</h4>
                 </div>
                 <div class="btn-wrapper">
-                    <button class="btn btn-success">Toggle</button>
+                    <button class="btn btn-success" (click)="bgToggle()">Toggle</button>
                 </div>
             </div>
             
             <div class="col-md-3">
-                <div class="box three">
+                <div class="box three" [ngClass]="num1 == num2 ? 'bg-secondary' : 'btn-danger'">
                     <h4>DIV Three</h4>
                 </div>
                 <div class="input-wrapper">
-                    <input type="text" class="form-control" placeholder="Num One">
-                    <input type="text" class="form-control" placeholder="Num Two">
+                    <input type="text" class="form-control" [(ngModel)]="num1" placeholder="Num One">
+                    <input type="text" class="form-control" [(ngModel)]="num2" placeholder="Num Two">
                 </div>
             </div>
             
             <div class="col-md-3">
-                <div class="box four">
+                <div class="box four" [ngClass] = "isActive ? 'bg-warning' : 'bg-primary'">
                     <h4>DIV Four</h4>
                 </div>
-                <input type="checkbox">
+                <input type="checkbox" [(ngModel)] = "isActive">
                 <select class="form-select">
                     <option value="Lko">Lucknow</option>
                     <option value="USA">USA</option>
@@ -48,42 +48,36 @@
         </div>
         <div class="mt-5"></div>
         <div class="row">
-            <div class="col-md-3">
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <div class="heading-four">
-                    <h4></h4>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <select name="" id="" class="form-select">
-                    <option value=""></option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select name="" id="" class="form-control">
-                    <option value=""></option>
-                </select>
-            </div>
-        </div>
-        <div class="mt-5"></div>
-        <div class="row">
-            <div class="col-md-10 mx-auto">
+            <div class="col-md-8">
                 <table class="table table-bordered border-primary table-striped">
                     <thead>
-                        <th>Sr Number</th>
-                        <th>Student ID</th>
                         <th>Name</th>
                         <th>City</th>
+                        <th>Gender</th>
+                        <th>Total Marks</th>
                         <th>Status</th>
                     </thead>
+                    <tbody>
+                        <tr *ngFor="let stud of studentList">
+                            <td>{{stud.Name}}</td>
+                            <td>{{stud.City}}</td>
+                            <td>{{stud.gender}}</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar" [ngStyle]="{'width':stud.totalMarks + '%'}">{{stud.totalMarks}}%</div>
+                                </div></td>
+                            <td [ngStyle]="{'background-color':stud.isActive ? 'yellow' : '#00ff0d'}">
+                                <span *ngIf="stud.isActive">Enabled</span>
+                                <span *ngIf="!stud.isActive">Disabled</span>
+                            </td>
+                        </tr>
+                    </tbody>
                     
                 </table>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-4">
+                <div [ngStyle]="customStyle">This Dynamic CSS</div>
+            </div>
         </div>
     </div>
 </section>
