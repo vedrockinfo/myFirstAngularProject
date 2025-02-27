@@ -2,71 +2,62 @@
     <h1>Reactive Form</h1>
 </section>
 
+
 <div class="container">
-    <form class="row g-3 needs-validation" novalidate>
+    <form class="row g-3" [formGroup]="studentFrom">
         <div class="col-md-4">
-          <label for="validationCustom01" class="form-label">First name</label>
-          <input type="text" class="form-control" name="firstName"  id="validationCustom01" value="Mark" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-4">
-          <label for="validationCustom02" class="form-label">Last name</label>
-          <input type="text" class="form-control" name="lastName" id="validationCustom02" value="Otto" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-4">
-          <label for="validationCustomUsername" class="form-label">Username</label>
-          <div class="input-group has-validation">
-            <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
-            <input type="text" class="form-control" name="userName" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-            <div class="invalid-feedback">
-              Please choose a username.
+          <label class="form-label">First name</label>
+          <input type="text" class="form-control" formControlName="firstName" name="firstName">
+          <div class="text-danger">
+            @if(studentFrom.controls['firstName'].touched && studentFrom.controls['firstName'].errors?.['required']){
+              <span>This is required</span>
+            }@else if (studentFrom.controls['firstName'].touched && studentFrom.controls['firstName'].errors?.['minlength']) {
+              <span>Min 4 Character required</span>
+            }
             </div>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Last name</label>
+          <input type="text" class="form-control" formControlName="lastName" name="lastName">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Username</label>
+          <div class="input-group">
+            <span class="input-group-text">&#64;</span>
+            <input type="text" class="form-control" formControlName="userName" name="userName">
+            @if(studentFrom.controls['userName'].touched && studentFrom.controls['userName'].errors?.['email']){
+              <span class="text-danger">Email is not Valid</span>
+            }
           </div>
         </div>
         <div class="col-md-6">
-          <label for="validationCustom03" class="form-label">City</label>
-          <input type="text" class="form-control" name="city" id="validationCustom03" required>
-          <div class="invalid-feedback">
-            Please provide a valid city.
-          </div>
+          <label class="form-label">City</label>
+          <input type="text" class="form-control" formControlName="city" name="city">
         </div>
         <div class="col-md-3">
-          <label for="validationCustom04" class="form-label">State</label>
-          <select class="form-select" name="state" id="validationCustom04" required>
+          <label class="form-label">State</label>
+          <select class="form-select" name="state" formControlName=""state>
             <option selected disabled value="">Choose...</option>
             <option>Maharashtra</option>
             <option>Goa</option>
             <option>Rajasthan</option>
           </select>
-          <div class="invalid-feedback">
-            Please select a valid state.
-          </div>
         </div>
         <div class="col-md-3">
-          <label for="validationCustom05" class="form-label">Zip</label>
-          <input type="text" class="form-control" name="zip" id="validationCustom05" required>
-          <div class="invalid-feedback">
-            Please provide a valid zip.
-          </div>
+          <label class="form-label">Zip</label>
+          <input type="text" class="form-control" formControlName="zip" name="zip">
         </div>
         <div class="col-12">
           <div class="form-check">
-            <input class="form-check-input" name="isAgreeterms" type="checkbox" value="" id="invalidCheck" required>
+            <input class="form-check-input" formControlName="isAcceptTerms" name="isAgreeterms" type="checkbox" value="">
             <label class="form-check-label" for="invalidCheck">
               Agree to terms and conditions
             </label>
-            <div class="invalid-feedback">
-              You must agree before submitting.
-            </div>
           </div>
         </div>
         <div class="col-12">
-          <button class="btn btn-primary" type="submit">Submit form</button>
+          <button class="btn btn-primary" type="submit" [disabled]="studentFrom.invalid" (click)="onSave()">Submit form</button>
         </div>
       </form>
+      <h2>{{formValue | json}}</h2>
 </div>

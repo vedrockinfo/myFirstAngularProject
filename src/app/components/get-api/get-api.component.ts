@@ -8,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './get-api.component.css'
 })
 export class GetAPIComponent {
-
+  userLists: any [] = [];
+  constructor(private http: HttpClient) {
+    
+  }
+  getAllUsers() {
+    debugger;
+    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe((result:any) => {
+      debugger;
+      this.userLists = result;
+    });
+  }
 }

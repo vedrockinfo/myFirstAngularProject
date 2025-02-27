@@ -1,17 +1,20 @@
-.keyboardWrapper{
+.keyboardWrapper {
     background: #0c0f1f;
     padding: 5rem 0;
 }
-.keyboardWrapper .keyboard{
+
+.keyboardWrapper .keyboard {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px 20px;
 }
-.keyboardWrapper .keyboard .break{
+
+.keyboardWrapper .keyboard .break {
     flex-basis: 100%;
 }
-.keyboardWrapper .keyboard .key{
+
+.keyboardWrapper .keyboard .key {
     display: inline-block;
     width: 60px;
     height: 60px;
@@ -23,7 +26,8 @@
     overflow: hidden;
     position: relative;
 }
-.keyboardWrapper .keyboard .key::before{
+
+.keyboardWrapper .keyboard .key::before {
     content: "";
     position: absolute;
     top: 5px;
@@ -37,10 +41,50 @@
     border-top: 1px solid #0009;
     border-radius: 8px;
 }
-.keyboardWrapper .keyboard .key i{
+
+.keyboardWrapper .keyboard .key i {
     position: relative;
     z-index: 2;
     font-size: 24px;
     font-weight: 500;
     font-style: normal;
+}
+
+/* :root{
+    --bjp-run: url(../../../../public/run.gif);
+    --bjp-win: url(../../../../public/win.gif);
+    --bjp-stop: url(../../../../public/stop.gif);
+} */
+
+.bjpWrapper{
+    height: 60px;
+    width: 100%;
+    position: relative;
+}
+.bjp-run {
+    animation: animation-bar-runbjp 20s forwards infinite;
+    width: 38px;
+    height: 57px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+    z-index: 999
+}
+
+.bjp-win {
+    animation: animation-bar-winbjp 2s ease-in-out infinite linear;
+}
+
+@keyframes animation-bar-runbjp {
+    0% {
+        background-image: url(../../../../public/run.gif);
+        left: 0;
+    }
+
+    99.99% {
+        background-image: url(../../../../public/run.gif);
+        left: 99%;
+    }
+
 }

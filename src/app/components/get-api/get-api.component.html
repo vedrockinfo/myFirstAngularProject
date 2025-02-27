@@ -1,3 +1,17 @@
 <section class="innerSection">
-    <h1>GET Api</h1>
+    <h1>GET API</h1>
 </section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-success" (click)="getAllUsers()">Get User List</button>
+        </div>
+        <div class="col-md-4">
+            <select class="form-select">
+                @for (item of userLists; track $index) {
+                    <option value="">{{item.title}}</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>

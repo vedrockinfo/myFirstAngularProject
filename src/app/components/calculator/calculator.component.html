@@ -1,0 +1,85 @@
+<section class="innerSection">
+  <h1>calculator clock & loader</h1>
+  <h6>Frontend Part</h6>
+</section>
+<section class="calculateClock mb-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <div class="calculator">
+          <div class="display">
+            <input type="text" [(ngModel)]="currentInput" readonly />
+            <div class="result">{{ result }}</div>
+          </div>
+          <div class="calcGrid buttons">
+            <div class="calcItem">
+              <button (click)="appendToInput('7')">7</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('8')">8</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('9')">9</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="setOperation('/')">/</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('4')">4</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('5')">5</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('6')">6</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="setOperation('*')">*</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('1')">1</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('2')">2</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('3')">3</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="setOperation('-')">-</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="appendToInput('0')">0</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="calculateResult()">=</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="clearInput()">C</button>
+            </div>
+            <div class="calcItem">
+              <button (click)="setOperation('+')">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="clock">
+          <div class="hour">
+             <div class="hr" id="hr"></div>
+          </div>
+          <div class="min">
+             <div class="mn" id="mn"></div>
+          </div>
+          <div class="sec">
+             <div class="sc" id="sc"></div>
+          </div>
+       </div>
+      </div>
+      <div class="col-md-4">
+        <div class="loader">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

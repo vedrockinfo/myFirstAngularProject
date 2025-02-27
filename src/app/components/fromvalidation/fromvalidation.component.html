@@ -3,12 +3,17 @@
 </section>
 
 <div class="container">
-    <form class="row g-3 needs-validation" novalidate>
+    <form class="row g-3 needs-validation" #form='ngForm'>
         <div class="col-md-4">
           <label for="validationCustom01" class="form-label">First name</label>
-          <input type="text" class="form-control" name="firstName" [(ngModel)]="studentObj.firstName" id="validationCustom01" value="Mark" required>
-          <div class="valid-feedback">
-            Looks good!
+          <input type="text" class="form-control" name="firstName" #fName="ngModel" [(ngModel)]="studentObj.firstName" id="validationCustom01" value="Mark" required minlength="3">
+          <div class="text-danger">
+            @if ((fName.touched || fName.dirty) && fName.errors?.['required']) {
+              <span>This is Required</span>
+            }
+            @else if ((fName.touched || fName.dirty) && fName.errors?.['minlength']) {
+              <span>Minimum 3 Character Required</span>
+            }
           </div>
         </div>
         <div class="col-md-4">
@@ -66,7 +71,8 @@
           </div>
         </div>
         <div class="col-12">
-          <button class="btn btn-primary" type="submit" (click)="onSubmit()">Submit form</button>
+          <button type="reset" class="btn btn-danger" (click)="resetForm()">Reset</button>
+          <button class="btn btn-primary" type="submit" [disabled]="form.invalid" (click)="onSubmit()">Submit form</button>
         </div>
       </form>
       <h4>{{formValue|json}}</h4>

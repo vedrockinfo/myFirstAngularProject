@@ -12,6 +12,8 @@ import { ReactiveComponent } from './components/reactive/reactive.component';
 import { GetAPIComponent } from './components/get-api/get-api.component';
 import { NgtemplateComponent } from './components/ngtemplate/ngtemplate.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { APIHttpClientComponent } from './components/api-http-client/api-http-client.component';
 
 export const routes: Routes = [
     {
@@ -26,6 +28,10 @@ export const routes: Routes = [
     {
         path:'add-employee',
         component:AddEmployeeComponent    
+    },
+    {
+        path:'calculator',
+        component:CalculatorComponent
     },
     {
         path:'data-binding',
@@ -70,5 +76,9 @@ export const routes: Routes = [
     {
         path:'get-api',
         component:GetAPIComponent
+    },
+    {
+        path:'app-api-http-client',
+        component:APIHttpClientComponent
     }
 ];
